@@ -1,21 +1,20 @@
 package com.company.service;
 
-
 import java.util.ArrayList;
 
 public class DecryptionService {
 
-  private static String cipherText;
-  private static ArrayList<Character> alphabet = new ArrayList<>();
+  private String cipherText;
+  private ArrayList<Character> alphabet = new ArrayList<>();
   private int charIndex = 1072;
 
   public DecryptionService(String cipherText) {
     setAlphabet();
-    DecryptionService.cipherText = cipherText.toLowerCase();
+    this.cipherText = cipherText.toLowerCase();
   }
 
   //Returns the offset symbol c on key in right.
-  private static char chooseChar(char c, int key) {
+  private char chooseChar(char c, int key) {
     if (c >= 'а' && c <= 'е') {
       return alphabet.get(((c - 1072) + key) % 33);
     } else if (c == 'ё') {
